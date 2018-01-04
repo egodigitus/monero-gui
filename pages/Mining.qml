@@ -157,6 +157,8 @@ Rectangle {
                         } else {
                             errorPopup.title  = qsTr("Error starting mining") + translationManager.emptyString;
                             errorPopup.text = qsTr("Couldn't start mining.<br>")
+                            if (blocksToSync > 0)
+                            errorPopup.text = qsTr("Couldn't start mining. Your deamon has to synchronize with the current height of the blockchain.<br>")
                             if (!isDaemonLocal())
                                 errorPopup.text += qsTr("Mining is only available on local daemons. Run a local daemon to be able to mine.<br>")
                             errorPopup.icon = StandardIcon.Critical
